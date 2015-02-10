@@ -1,6 +1,11 @@
 class Random 
   # Posts a random death threat to human members of the team on Slack
   def self.kill_all_humans
+    threats = [
+      "Kill all humans!",
+      "I just wanted you all to know I'm working on Skynet..."
+    ]
+    Slack.post(threats.sample)
   end
 
   # Plays a song from slackbots library and displays a 'party hard' gif from giphy on its screen

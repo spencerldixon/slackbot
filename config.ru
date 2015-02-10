@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'bundler'
+require 'dotenv'
 
+Dotenv.load
 Bundler.require
 
 root = ::File.dirname(__FILE__)
