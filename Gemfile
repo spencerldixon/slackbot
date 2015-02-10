@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
+gem 'sinatra', git: 'git@github.com:sinatra/sinatra.git'
+gem 'thin'
 gem 'arduino_firmata'
+gem 'tts'

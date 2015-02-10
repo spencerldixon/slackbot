@@ -3,6 +3,7 @@ require 'bundler'
 
 Bundler.require
 
-require './slackbot'
-run Slackbot
+root = ::File.dirname(__FILE__)
+require ::File.join( root, 'slackbot' )
 
+run Slackbot

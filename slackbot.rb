@@ -1,25 +1,20 @@
 require 'sinatra'
 require "rubygems"
 require "arduino_firmata"
+require 'bundler/setup'
 
 require_relative 'features/speech'
 require_relative 'features/emotion'
 require_relative 'features/slack'
 require_relative 'features/random'
 
-class Slackbot < Sinatra::Base
+class Slackbot < Sinatra::Application
   # Connect to arduino
-  #arduino = ArduinoFirmata.connect
+  arduino = ArduinoFirmata.connect
 
-  # Display debugging information and flash pin 13 led on and off
+  # Display debugging information
   get '/debug' do
-    50.times do
-      #arduino.digital_write 13, true
-      sleep 0.5
-      #arduino.digital_write 13, false
-      sleep 0.5
-    end
-
+    Speech.say "Debug mode"
     "Firmata Version: #{arduino.version}"
   end
 
@@ -34,5 +29,7 @@ class Slackbot < Sinatra::Base
 
   # React to incoming webhooks for Slack text-to-speech
   post '/text-to-speech' do
+    Speech.say "Hello world"
+    status 200
   end
 end

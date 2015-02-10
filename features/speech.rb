@@ -1,9 +1,12 @@
+require 'tts'
+
 class Speech
   # Takes in a string and uses TTS to play it through Slackbot's speaker
-  def say text
+  def self.say text
+    text.play
   end
 
   # Takes an audio file stored in the memories directory and plays it through Slackbot's speaker
-  def sing sound
+  def self.sing sound
   end
 end
